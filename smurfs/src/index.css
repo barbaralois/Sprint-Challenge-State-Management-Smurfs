@@ -1,5 +1,84 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto&display=swap');
+
+* {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-size: 100%;
+  box-sizing: border-box;
+  font: inherit;
+  max-width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-size: 62.5%;
+  background-color: royalblue;
+}
+
+h1 {
+  font-size: 3rem;
+  padding: 1.2rem 0;
+  color: white;
+  letter-spacing: 1px;
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+form {
+  background-color: skyblue;
+  padding: 1rem;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+form h2 {
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+form label {
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+form button {
+  font-size: 0.9rem;
+  padding: 2px 10px;
+}
+
+.smurf-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.smurf {
+  border: 2px solid black;
+  width: 200px;
+  height: 200px;
+  margin: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: white;
+  border-radius: 25px;
+}
+
+.smurf h3 {
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 1.8rem;
+}
+
+.smurf h4 {
+  font-size: 1.2rem;
+}
+
+.smurf button {
+  padding: 3px;
+  width: 80%;
+  font-size: 0.7rem;
 }
