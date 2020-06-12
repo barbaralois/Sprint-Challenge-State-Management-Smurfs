@@ -23,10 +23,26 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+  The Context API helps you avoid prop drilling when you need certain information in multiple sections of a component tree.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+  Actions: Actions are objects that have a type property. This is where you say what the action being performed is, for example "ADD_ITEM". Actions typically also have a payload property where you carry the necessary data for the object.
+  Reducers: A reducer is where you specify how the state will changed in response to the action that is triggered. It's a pure function that takes in the previous state and the action. There are never side effects in side of a reducer, only modifies state without mutating it.
+  Store: The store holds all the state for the application, and it can only be changed via dispatching actions. Regardless of the size of an application, you only have one Store and instead will divide up your reducers into more specific groups. This is valuable because you can't accidentally mess up your state via side effects or miscellaneous changes in your code, it will only update upon intentional action dispatches. That is why it is known as a single source of truth.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+  Application state is data that is needed throughout your application, and usually it can be updated or changed by multiple components. Application state also will be referenced/accessed multiple times. Component state is data that is only used within a single component. One very clear example of this is form inputs, where you need to track each keystroke but the application does not need to be aware of it. With each piece of data you'll want to consider where it needs to be accessed in order to determine if you should use Component or Application state.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+  Thunk is a middleware that allows us to handle asynchronous actions in Redux. Every time an action is called, thunk inercepts and performs something with the returned data. It sends actions forward to the reducer like usual, but is able to invoke the thunks (or functions) it receives and passes in the dispatch function, so that we are able to run an API call (or other asynchronous action) and dispatch an action within the .then(). Without thunk, your action creators can't return a function, they can only return an action object. We can then wait until the data is received from an API call before the action is triggered and the page reloads, avoiding issues of the page trying to load before data is present.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+  I find the Context API significantly easier to understand, but that is because I had a bit of prior experience with it. However, I think that Redux is more powerful and is an incredible tool. I want to become more proficient with it and think it will serve me better in my future projects than the Context API. I see a lot of value in the actions/reducers because I appreciate code that makes it clear what is happening, and I'd say an all caps description of the last action is pretty clear.
 
 ## Project Set Up
 
@@ -61,11 +77,11 @@ Follow these steps to set up your project:
 ```js
 [
   {
-    name: "Brainey",
+    name: 'Brainey',
     age: 200,
-    height: "5cm",
-    id: 0
-  }
+    height: '5cm',
+    id: 0,
+  },
 ];
 ```
 
@@ -94,17 +110,17 @@ Example of object created in Smurf DB:
 ```js
 [
   {
-    name: "Brainey",
+    name: 'Brainey',
     age: 200,
-    height: "5cm",
-    id: 0
+    height: '5cm',
+    id: 0,
   },
   {
-    name: "Sleepy",
+    name: 'Sleepy',
     age: 200,
-    height: "5cm",
-    id: 1
-  }
+    height: '5cm',
+    id: 1,
+  },
 ];
 ```
 
@@ -154,10 +170,10 @@ Example:
 ```js
 output: [
   {
-    name: "Sleepy",
+    name: 'Sleepy',
     age: 200,
-    height: "5cm",
-    id: 1
-  }
+    height: '5cm',
+    id: 1,
+  },
 ];
 ```
